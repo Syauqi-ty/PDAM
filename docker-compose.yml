@@ -1,0 +1,25 @@
+version: "3.0"
+
+services:
+  api:
+    build: ./pampam_backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    restart: always
+
+  # frontend:
+  #     build: ./pampam_frontend
+  #     ports:
+  #         - "80:3000"
+  #     restart: always
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: 250330
+      POSTGRES_DB: pampam
+    ports:
+      - "5432:5432"
+    restart: always
